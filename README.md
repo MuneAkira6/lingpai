@@ -52,7 +52,7 @@
 
     这是我的截图（我使用了绝对路径）：
 
-    ![](https://i.bmp.ovh/imgs/2021/06/68e7823963fd6bda.png)
+    [![2IR0wq.png](https://z3.ax1x.com/2021/06/13/2IR0wq.png)](https://imgtu.com/i/2IR0wq)
 
 3. 开启网页管理服务(app.js)。
 
@@ -62,7 +62,7 @@
 
 4. 上述所有服务都开启后，再打开浏览器，在地址栏输入`localhost:8080`，如果出现类似下面这样的页面，表示运行成功：
 
-    ![](https://i.bmp.ovh/imgs/2021/06/5694d9b70aa2018d.png)
+    [![2IRmSe.png](https://z3.ax1x.com/2021/06/13/2IRmSe.png)](https://imgtu.com/i/2IRmSe)
 
     对上面这张图的解释：八个方框表示八个主机，主机边框为黑色，表示此刻该主机正在准备数据；边框为蓝色表示数据以准备好，等待发送。主机背景色为红色，表示令牌当前在该主机处，该主机可以发送数据。绿色的线表示数据发送方向。图中主机4发送给主机2，当数据发送完成后主机2上出现'Host4 sends data to Host2'的提示。
 
