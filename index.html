@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style type="text/css">
+            *{
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            body{
+                margin: 0;
+                font-size: 18px;
+            }
+            div{
+                width: 40px;
+                height: 40px;
+                border: 1px solid black;
+                position: absolute;
+                /* border-radius: 50%; */
+                text-align: center;
+                line-height: 40px;
+            }
+            .client1{
+                left: 100px;
+                top: 0;
+            }
+            .client2{
+                left: 200px;
+                top: 0;
+            }
+            .client3{
+                left: 300px;
+                top: 100px;
+            }
+            .client4{
+                left: 300px;
+                top: 200px;
+            }
+            .client5{
+                left: 200px;
+                top: 300px;
+            }
+            .client6{
+                left: 100px;
+                top: 300px;
+            }
+            .client7{
+                left: 0px;
+                top: 200px;
+            }
+            .client8{
+                left: 0px;
+                top: 100px;
+            }
+            section{
+                position: relative;
+                /* transform: translateX(2000px); */
+                transform-origin: center center;
+                transform: scale(1.5) translateX(50%);
+                /* transform: translateX(50%); */
+                top: 100px;
+            }
+            .line{
+                width: 0;
+                height: 150px;
+                border: 1px solid black;
+                position: absolute;
+                /* background-color: #fff; */
+            }
+
+            .mono{
+                width: 30px;
+                height: 30px;
+                background-color: black;
+                position: absolute;
+                /* transition: none; */
+            }
+
+            svg{
+                width: 300px;
+                height: 300px;
+                /* position: absolute; */
+                /* top: 30px; */
+            }
+
+            .special{
+                line-height: unset;
+                font-size: 10px;
+            }
+        </style>
+        <script lang="javascript"> 
+            
+        </script>
+    </head>
+
+    <body>
+        <section>
+            <div class="client1">1</div>
+            <div class="client2">2</div>
+            <div class="client3">3</div>
+            <div class="client4">4</div>
+            <div class="client5">5</div>
+            <div class="client6">6</div>
+            <div class="client7">7</div>
+            <div class="client8">8</div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                
+            </svg>
+        </section>
+        
+        <script lang="javascript">
+            var clientArray = document.getElementsByTagName('section')[0];
+            clientArray = clientArray.children;
+            var mono = document.getElementsByClassName('mono')[0];
+            var svg = document.getElementsByTagName('svg')[0];
+
+            //单独开一个socket，显示令牌
+            var ws0 = new WebSocket('ws://localhost:8089');
+            var cnt = 0;
+            var oldMsg = '';
+            ws0.onmessage = function(e) {
+                var msg = e.data;
+                if (oldMsg != msg){
+                    cnt = 0;
+                }
+                if (cnt == 0){
+                    lingpaiBangding(msg);
+                    cnt++;
+                }
+                oldMsg = msg;
+            };
+
+            // 初始化一个 WebSocket 对象
+            var ws1 = new WebSocket('ws://localhost:8081');
+            ws1.onmessage = function(e) {
+                var msg = e.data;
+                // alert(msg);
+                console.log(msg);
+                if (msg.includes('^_^') == true)//这个分支基本走不了
+                    func(msg);
+                else if (msg.includes('*_*') == true){//准备发送
+                    
+                }
+                else{//Host1 sends data to Host2
+                    paint(msg);
+                }
+            };
+
+            var ws2 = new WebSocket('ws://localhost:8082');
+            ws2.onmessage = function(e) {
+                var msg = e.data;
+                // alert(msg);
+                console.log(msg);
+                if (msg.includes('^_^') == true)
+                    func(msg);
+                else if (msg.includes('*_*') == true){
+                    
+                }
+                else{
+                    paint(msg);
+                }
+            };
+
+            var ws3 = new WebSocket('ws://localhost:8083');
+            ws3.onmessage = function(e) {
+                var msg = e.data;
+                // alert(msg);
+                console.log(msg);
+                if (msg.includes('^_^') == true)
+                    func(msg);
+                else if (msg.includes('*_*') == true){
+                    
+                }
+                else{
+                    paint(msg);
+                }
+            };
+
+            var ws4 = new WebSocket('ws://localhost:8084');
+            ws4.onmessage = function(e) {
+                var msg = e.data;
+                // alert(msg);
+                console.log(msg);
+                if (msg.includes('^_^') == true)
+                    func(msg);
+                else if (msg.includes('*_*') == true){
+                    
+                }
+                else{
+                    paint(msg);
+                }
+            };
+
+            var ws5 = new WebSocket('ws://localhost:8085');
+            ws5.onmessage = function(e) {
+                var msg = e.data;
+                // alert(msg);
+                console.log(msg);
+                if (msg.includes('^_^') == true)
+                    func(msg);
+                else if (msg.includes('*_*') == true){
+                    
+                }
+                else{
+                    paint(msg);
+                }
+            };
+
+            var ws6 = new WebSocket('ws://localhost:8086');
+            ws6.onmessage = function(e) {
+                var msg = e.data;
+                // alert(msg);
+                console.log(msg);
+                if (msg.includes('^_^') == true)
+                    func(msg);
+                else if (msg.includes('*_*') == true){
+                    
+                }
+                else{
+                    paint(msg);
+                }
+            };
+
+            var ws7 = new WebSocket('ws://localhost:8087');
+            ws7.onmessage = function(e) {
+                var msg = e.data;
+                // alert(msg);
+                console.log(msg);
+                if (msg.includes('^_^') == true)
+                    func(msg);
+                else if (msg.includes('*_*') == true){
+                    
+                }
+                else{
+                    paint(msg);
+                }
+            };
+
+            var ws8 = new WebSocket('ws://localhost:8088');
+            ws8.onmessage = function(e) {
+                var msg = e.data;
+                // alert(msg);
+                console.log(msg);
+                if (msg.includes('^_^') == true)//已经把数据准备好
+                    func(msg);
+                else if (msg.includes('*_*') == true){
+
+                }
+                else if (msg.includes('$')){//发送数据的消息Hosts1 sends data to hosts2
+                    paint(msg);
+                }
+            };
+
+            function paint(msg){
+                var start = msg.substring(4, 5);
+                var length = msg.length;
+                var dest = msg.substring(length - 1, length);
+                console.log('starts ' + start + 'dest: ' + dest);
+                start = parseInt(start);
+                dest = parseInt(dest);
+                clientArray[start - 1].style.borderColor = 'black';
+
+                var x1 = '';
+                var y1 = '';
+                var x2 = '';
+                var y2 = '';
+                if (start == 1){
+                    x1 = '120';
+                    y1 = '20';
+                }
+                else if (start == 2){
+                    x1 = '220';
+                    y1 = '20';
+                }
+                else if (start == 3){
+                    x1 = '320';
+                    y1 = '120';
+                }
+                else if (start == 4){
+                    x1 = '320';
+                    y1 = '220';
+                }
+                else if (start == 5){
+                    x1 = '220';
+                    y1 = '320';
+                }
+                else if (start == 6){
+                    x1 = '120';
+                    y1 = '320';
+                }
+                else if (start == 7){
+                    x1 = '20';
+                    y1 = '220';
+                }
+                else if (start == 8){
+                    x1 = '20';
+                    y1 = '120';
+                }
+
+                if (dest == 1){
+                    x2 = '120';
+                    y2 = '20';
+                }
+                else if (dest == 2){
+                    x2 = '220';
+                    y2 = '20';
+                }
+                else if (dest == 3){
+                    x2 = '320';
+                    y2 = '120';
+                }
+                else if (dest == 4){
+                    x2 = '320';
+                    y2 = '220';
+                }
+                else if (dest == 5){
+                    x2 = '220';
+                    y2 = '320';
+                }
+                else if (dest == 6){
+                    x2 = '120';
+                    y2 = '320';
+                }
+                else if (dest == 7){
+                    x2 = '20';
+                    y2 = '220';
+                }
+                else if (dest == 8){
+                    x2 = '20';
+                    y2 = '120';
+                }
+
+                svg.innerHTML = '';
+                svg.innerHTML = `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" style="stroke: rgb(0, 255, 0); stroke-width: 2"/>`;
+                setTimeout(() => {//2s后在接收方展示提示信息，说明已收到
+                    clientArray[dest - 1].style.backgroundColor = 'green';
+                    clientArray[dest - 1].classList.add('special');
+                    clientArray[dest - 1].innerHTML = `Host${start} sends data to Host${dest}`;
+                }, 2000);
+                setTimeout(() => {//2s后在接收方展示提示信息，说明已收到
+                    clientArray[dest - 1].style.backgroundColor = 'white';
+                    // clientArray[dest - 1].innerHTML = dest.toString();
+                }, 2500);
+                setTimeout(() => {
+                    clientArray[dest - 1].innerHTML = dest.toString();
+                    clientArray[dest - 1].classList.remove('special');
+                }, 3000);
+            }
+
+
+            function func(msg){
+                var length = msg.length;
+                var dest = msg.substring(length - 1, length);
+                switch (dest){//不能用排他逻辑
+                    case '1':
+                        clientArray[0].style.borderColor = 'blue';
+                        break;
+                    case '2':
+                        clientArray[1].style.borderColor = 'blue';
+                        break;
+                    case '3':
+                        clientArray[2].style.borderColor = 'blue';
+                        break;
+                    case '4':
+                        clientArray[3].style.borderColor = 'blue';
+                        break;
+                    case '5':
+                        clientArray[4].style.borderColor = 'blue';
+                        break;
+                    case '6':
+                        clientArray[5].style.borderColor = 'blue';
+                        break;
+                    case '7':
+                        clientArray[6].style.borderColor = 'blue';
+                        break;
+                    case '8':
+                        clientArray[7].style.borderColor = 'blue';
+                        break;
+                }
+            }
+
+
+            function lingpaiBangding(number){
+                // console.log('number: ' + number);
+                switch (number){
+                    case '1':
+                        for (let i = 0; i < clientArray.length; i++){
+                            clientArray[i].style.backgroundColor = 'white';
+                        }
+                        clientArray[0].style.backgroundColor = 'red';
+                        break;
+                    case '2':
+                        for (let i = 0; i < clientArray.length; i++){
+                            clientArray[i].style.backgroundColor = 'white';
+                        }
+                        clientArray[1].style.backgroundColor = 'red';
+                        break;
+                    case '3':
+                        for (let i = 0; i < clientArray.length; i++){
+                            clientArray[i].style.backgroundColor = 'white';
+                        }
+                        clientArray[2].style.backgroundColor = 'red';
+                        break;
+                    case '4':
+                        for (let i = 0; i < clientArray.length; i++){
+                            clientArray[i].style.backgroundColor = 'white';
+                        }
+                        clientArray[3].style.backgroundColor = 'red';
+                        break;
+                    case '5':
+                        for (let i = 0; i < clientArray.length; i++){
+                            clientArray[i].style.backgroundColor = 'white';
+                        }
+                        clientArray[4].style.backgroundColor = 'red';
+                        break;
+                    case '6':
+                        for (let i = 0; i < clientArray.length; i++){
+                            clientArray[i].style.backgroundColor = 'white';
+                        }
+                        clientArray[5].style.backgroundColor = 'red';
+                        break;
+                    case '7':
+                        for (let i = 0; i < clientArray.length; i++){
+                            clientArray[i].style.backgroundColor = 'white';
+                        }
+                        clientArray[6].style.backgroundColor = 'red';
+                        break;
+                    case '8':
+                        for (let i = 0; i < clientArray.length; i++){
+                            clientArray[i].style.backgroundColor = 'white';
+                        }
+                        clientArray[7].style.backgroundColor = 'red';
+                        break;
+                }
+            }
+        </script>            
+    </body>
+</html>
