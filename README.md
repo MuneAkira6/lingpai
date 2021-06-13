@@ -34,7 +34,9 @@
 
 1. 首先，安装并配置好node.js开发环境。我自己的开发环境是macOS 11.3.1 + node.js 15.7.0 + vs code。
 
-2. 在终端(windows为cmd)同时用node同时开启app0.js app1.js app2.js...app8.js以及timer.js。
+2. node.js文件运行时需要依赖，你可以使用终端（Windows为cmd），cd进文件夹目录，然后输入`node install`即可。
+
+3. 依赖安装好以后，用node同时开启app0.js app1.js app2.js...app8.js以及timer.js。
 
     注意，以上这些文件需要同时开启，你可以通过同时开八个终端并分别输入以下代码来实现：
 
@@ -43,6 +45,8 @@
     `node app1.js` 
 
     ...
+
+    `node app8.js`
 
     `node timer.js`
 
@@ -54,19 +58,19 @@
 
     [![2IR0wq.png](https://z3.ax1x.com/2021/06/13/2IR0wq.png)](https://imgtu.com/i/2IR0wq)
 
-3. 开启网页管理服务(app.js)。
+4. 开启网页管理服务(app.js)。
 
     `node app.js`
 
     如果你使用的是vs code，你也可以在vs code中使用node，此方法略过不表。
 
-4. 上述所有服务都开启后，再打开浏览器，在地址栏输入`localhost:8080`，如果出现类似下面这样的页面，表示运行成功：
+5. 上述所有服务都开启后，再打开浏览器，在地址栏输入`localhost:8080`，如果出现类似下面这样的页面，表示运行成功：
 
     [![2IRmSe.png](https://z3.ax1x.com/2021/06/13/2IRmSe.png)](https://imgtu.com/i/2IRmSe)
 
     对上面这张图的解释：八个方框表示八个主机，主机边框为黑色，表示此刻该主机正在准备数据；边框为蓝色表示数据以准备好，等待发送。主机背景色为红色，表示令牌当前在该主机处，该主机可以发送数据。绿色的线表示数据发送方向。图中主机4发送给主机2，当数据发送完成后主机2上出现'Host4 sends data to Host2'的提示。
 
-5. 运行结束以后别忘了杀掉所有node进程。在终端中输入：
+6. 运行结束以后别忘了杀掉所有node进程。在终端中输入：
 
     `killall node`
 
